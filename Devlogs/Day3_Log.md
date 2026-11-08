@@ -28,7 +28,7 @@ In other words, the integration worked technically, but it did not meet the proj
 
 ## 5. Lessons Learned (Key Takeaways)
 
-- **Verify troubleshooting advice.** Do not blindly trust ChatGPT—or any AI assistant—when diagnosing a complex setup. Check commands, settings, and explanations against reliable documentation before spending hours trying them.
+- **Verify troubleshooting advice.** **Do not blindly trust ChatGPT**—or any AI assistant—when diagnosing a complex setup. Check commands, settings, and explanations against reliable documentation before spending hours trying them.
 - **Check capabilities before installation.** Research a tool's exact feature set, especially multimodal and image-input support, before committing time to configuration.
 - **A successful connection is not the same as a useful workflow.** Evaluate integrations against the task they must support, not just whether they connect.
 - **Set a time limit for troubleshooting.** When repeated attempts are not producing evidence of progress, step back, verify assumptions, and reconsider the approach.
