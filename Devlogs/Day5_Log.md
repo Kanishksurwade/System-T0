@@ -155,4 +155,4 @@ Today was about getting the foundation running—not just making the code compil
 
 **Next focus:** build the visual identity with custom RPG sprites and glossy icons, integrate those assets into the existing React Native UI, and continue testing on-device.
 
-**Day 5 status:** Expo app initialized, EAS linked, and glassmorphic UI successfully previewed on a physical iPhone
+**Day 5 status:** Expo app initialized, EAS linked, and glassmorphic UI successfully previewed on a physical iPhone.
