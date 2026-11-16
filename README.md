@@ -48,7 +48,7 @@ The current design direction includes:
 - Glassmorphism-inspired cards and soft gradient backgrounds.
 - Pixel-art RPG character artwork.
 - Custom PNG badges and stat icons.
-- A profile experience centered around the character **Leonard**.
+- A profile experience centered around the character **Leonard / Leonhart** (the UI data and asset naming should be standardized in a later cleanup).
 - A modular customization menu for Hair, Face, Clothes and Weapon.
 
 ## Development Workflow
@@ -67,7 +67,7 @@ This approach helps keep changes understandable and reduces unnecessary rewrites
 
 ## Repository Structure
 
-```text
+~~~text
 System-T0/
 └── Devlogs/
     ├── Day1_Log.md
@@ -76,10 +76,14 @@ System-T0/
     ├── Day4_Log.md
     ├── Day5_Log.md
     ├── Day6_Log.md
-    └── Day7_Log.md
-```
+    ├── Day7_Log.md
+    ├── Day8_Log.md
+    ├── Day9_Log.md
+    ├── Day10_Log.md
+    └── Day11_Log.md
+~~~
 
-> The tree above describes the documentation currently tracked in this repository. The working Expo app and local asset folders are maintained separately at this stage.
+> The tree above describes the documentation tracked in this repository. The working Expo app and local asset folders are maintained separately at this stage. Days 8–10 currently contain retrospective placeholders pending the user's verified notes.
 
 ## Development Log
 
@@ -92,14 +96,20 @@ System-T0/
 | [Day 5](Devlogs/Day5_Log.md) | App foundation | Expo setup, EAS linking and first physical-device preview |
 | [Day 6](Devlogs/Day6_Log.md) | Asset preparation | Character/icon asset preparation and coding-tool bottlenecks |
 | [Day 7](Devlogs/Day7_Log.md) | Profile UI refinement | Custom asset integration, layout adjustments and Metro path troubleshooting |
+| [Day 8](Devlogs/Day8_Log.md) | Retrospective placeholder | Awaiting verified Day 8 notes; no activities invented |
+| [Day 9](Devlogs/Day9_Log.md) | Retrospective placeholder | Awaiting verified Day 9 notes; no activities invented |
+| [Day 10](Devlogs/Day10_Log.md) | Retrospective placeholder | Awaiting verified Day 10 notes; no activities invented |
+| [Day 11](Devlogs/Day11_Log.md) | Profile & character assets | Edit Name, gender selection, Leonhart/Emilia carousel and face/hair asset preparation |
 
 ## Current Priorities
 
-1. Complete the Profile screen's crown and streak-icon presentation.
-2. Verify streak artwork tier selection against the intended duration rules.
-3. Confirm all local static asset paths and final Profile layout on device.
-4. Continue implementing character customization in small, testable steps.
-5. Bring the local application source and required assets into a reproducible repository structure when ready.
+1. Inspect the dimensions, transparency and visible bounds of the face and hair assets.
+2. Prove that one face and one hair layer align correctly on Leonhart.
+3. Test hair and face switching without moving the base character.
+4. Repeat the alignment process for Emilia.
+5. Implement Face and Hair selection controls after the layered preview is reliable.
+6. Add persistence for profile name, gender and customization selections.
+7. Keep clothing and weapon customization deferred until the initial layers work.
 
 ## Build & Run
 
