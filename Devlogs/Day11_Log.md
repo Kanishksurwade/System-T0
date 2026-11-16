@@ -297,5 +297,25 @@ The most important next step is **not** to build a large customization system im
 
 **Day 11 status:** Profile editing and character switching tested on device; face and hair asset preparation completed; layered customization implementation remains upcoming.
 
+## 12. Visual Progress Snapshot
+
+The chart below is a qualitative status snapshot from the Day 11 evidence. It is not a percentage-completion estimate.
+
+~~~mermaid
+xychart-beta
+    title "Day 11 implementation status"
+    x-axis ["Name edit", "Gender flow", "Carousel", "Asset prep", "Layer fit"]
+    y-axis "Status (0 = pending, 1 = prepared, 2 = tested)" 0 --> 2
+    bar [2, 2, 2, 1, 0]
+~~~
+
+| Status score | Meaning |
+|---:|---|
+| 0 | Not implemented or not yet validated |
+| 1 | Assets/preparation completed; app integration or validation remains |
+| 2 | Working behaviour reported and tested on the iPhone |
+
+This makes the remaining gap visible: the profile flows are working, while asset alignment and layered rendering are the next technical milestone.
+
 ---
 *System: T-0 — Development log*
