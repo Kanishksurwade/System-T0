@@ -1,120 +1,157 @@
-# Day 12 — Leonhart Layer Alignment Inspection & Customization Planning
+# Day 12 — Leonhart Layer Planning & AI Workflow Bottlenecks
 
+> **Date:** 17 November 2026  
 > **Project:** System: T-0  
-> **Work area:** Character asset preparation and Profile customization architecture  
-> **Target character:** Leonhart  
-> **Asset template:** 1199 × 1312 px  
-> **Documentation status:** Based on the image-inspection report and planning decisions shared during Day 12. No application code was changed or tested on-device today.
+> **Focus:** Modular character customization, asset inspection and AI-assisted workflow  
+> **Status:** Planning documented; implementation pending
 
-## 1. Executive Summary
+## 1. Today's Summary
 
-Day 12 focused on preparing the next phase of System: T-0's character customization system. The goal is to move from a single flattened character image to a modular character made from independent transparent layers.
+Today focused on planning the first modular Leonhart character preview. The aim is to move from one flattened character image to separate transparent layers: a base body, face and hairstyle.
 
-The inspected Leonhart base, male face and red hair images were reported to share the same 1199 × 1312 px canvas. Their visible content bounds were measured, and a preliminary composite was inspected. The report indicated that the face covers the bald head and the hair sits above the eyebrows in the expected position.
+The image-inspection report shared today states that the selected Leonhart base, male face and red hair images all use a **1199 × 1312 px** canvas. A preliminary composite (base → face → hair) appeared aligned. This is promising, but it has not yet been tested inside the app.
 
-This is a promising alignment result, but it is not yet a verified in-app result. No code was changed, no Expo Go test was performed, and the layered character has not yet been approved for implementation.
+No application code was changed, no image assets were overwritten, and no Expo Go test was completed. We paused deliberately until the exact local files are confirmed and the remaining raw face/hair assets can be prepared.
 
 ## 2. Image Inspection Findings
 
-| Layer | Canvas size | Transparency | Reported visible bounds |
+| Layer | Canvas | Reported visible bounds | Notes |
 |---|---:|---|---|
-| Leonhart base | 1199 × 1312 | Yes | x 442–739, y 302–599 (head area) |
-| Male face | 1199 × 1312 | Yes | x 453–760, y 309–527 |
-| Red hair | 1199 × 1312 | Yes | x 388–811, y 125–417 |
+| Leonhart base | 1199 × 1312 | Head area: x 442–739, y 302–599 | Transparent base with hair/face removed |
+| Male face | 1199 × 1312 | x 453–760, y 309–527 | Black edge specks; chin may overlap collar |
+| Red hair | 1199 × 1312 | x 388–811, y 125–417 | Some pixels reported at 80–99% opacity |
 
-The inspection report states that all three images use the same canvas dimensions and that a preliminary stack (base → face → hair) appears aligned.
+These are reported inspection findings, not independently repeated measurements or an in-app verification.
 
-### Items to watch during the eventual phone test
-
-- The hair is partially translucent in many pixels (reported opacity around 80–99%), so the underlying skin may show through faintly.
-- Small black specks are visible around the face asset's edge.
-- The face chin may overlap a small part of the blue collar.
-
-These were recorded as visual checks, not reasons to edit the assets immediately. The plan is to preserve the current originals until the first app preview is evaluated.
-
-## 3. Current App Architecture
-
-The inspected code files were reported to work as follows:
-
-- `src/screens/ProfileScreen.js` supplies the carousel slides. Leonhart currently uses the existing flattened character image.
-- `src/components/AvatarCarousel.js` currently renders one image per slide.
-- `assets/profileImages.js` stores static image imports.
-- `package.json` identifies the current Expo / React Native project setup; no new dependency was considered necessary for the proposed layer stack.
-
-The proposed implementation is intentionally small and limited to three files:
-
-1. **`assets/profileImages.js`** — register the base, face and hair images.
-2. **`src/components/AvatarCarousel.js`** — add support for rendering a stack of image layers while preserving the existing single-image and placeholder behaviour.
-3. **`src/screens/ProfileScreen.js`** — change only Leonhart's slide to use the three layers.
-
-This is a proposal only. None of these edits was applied on Day 12.
-
-## 4. File Identity Check Still Required
-
-Before implementation, the actual files on disk must be confirmed to be the same aligned versions that were inspected:
-
-- `assets/Characters/Male & female/Leonhart_Base.png`
-- `assets/Face/male faces/Male_Face_1.png`
-- `assets/Hairs/Male hair/Red Hair.png`
-
-There were earlier filename variations in the conversation, so exact local filenames and file identity must be checked before adding static `require()` imports. The older flat Leonhart image should remain available as a rollback option.
-
-## 5. Decisions and Scope Boundaries
-
-- Start with **Leonhart only**.
-- Use one face and one hair asset for the first proof of concept.
-- Leave Emilia on her existing flat image.
-- Do not modify the artwork until the alignment and in-app result are evaluated.
-- Do not touch the Edit Name modal, gender selection, carousel navigation, stats, or other working Profile features.
-- Do not implement clothes, weapons, premium rules, or additional customization categories in this phase.
-- Do not install new packages unless a genuine requirement appears.
-
-The intended layer order is:
+### Intended layer order
 
 ```text
-Leonhart base
-    ↓
-Male face
-    ↓
-Red hair
-    ↓
-Layered character preview
+Leonhart_Base.png
+       ↓
+Male_Face_1.png
+       ↓
+Red Hair.png
+       ↓
+Layered Leonhart preview
 ```
 
-## 6. Why the Work Was Paused
+## 3. Proposed Code Work — Not Yet Applied
 
-Claude 1's free-message limit was reached and its interface showed that messaging would resume the following day at 2:30 AM. The decision was to continue image preparation after the limit resets rather than rush into code changes with assets that may still need alignment work.
+| File | Planned change | Status |
+|---|---|---|
+| `assets/profileImages.js` | Register base, face and red-hair image imports | Pending |
+| `src/components/AvatarCarousel.js` | Support layered slides while preserving ordinary images and placeholders | Pending |
+| `src/screens/ProfileScreen.js` | Use the three layers for Leonhart only | Pending |
 
-Claude 2's earlier inspection proposed the three-file implementation, but the team will not proceed with those edits until the image files and their exact on-disk paths are confirmed.
+Emilia, Coming Soon, the Edit Name modal, gender selection, carousel controls, stats and other working UI must remain unchanged. Keep the old flat Leonhart image as a rollback option. No new package is currently expected.
 
-## 7. Verification Status
+Illustrative rendering concept only — this is **not code added to the app**:
 
-| Item | Day 12 status |
-|---|---|
-| Three image dimensions inspected | Reported as 1199 × 1312 |
-| Transparent backgrounds | Reported present |
-| Preliminary layer alignment | Visually inspected in the report; not yet tested in app |
-| Local file identity and exact paths | Confirmation still required |
-| Image asset modifications | None |
-| Code modifications | None |
-| Expo Go device test | Not performed |
-| Leonhart layered preview in app | Pending |
-| Emilia customization | Out of scope for this first test |
+```jsx
+<View>
+  <Image source={baseImage} />
+  <Image source={faceImage} />
+  <Image source={hairImage} />
+</View>
+```
 
-## 8. Next Session Plan
+All layers must share the same display frame so they scale together.
 
-1. After Claude 1's message limit resets, upload the original male face and hair files in manageable batches (about six at a time).
-2. Have the image assets aligned to the fixed 1199 × 1312 template without redesigning the pixel art.
-3. Preserve backups and verify the returned PNGs and exact filenames.
-4. Confirm the three local file paths.
-5. Only then make the first small code edit in `assets/profileImages.js`.
-6. Test incrementally before changing `AvatarCarousel.js` and then Leonhart's slide in `ProfileScreen.js`.
+## 4. Tools, Languages and Stack
 
-## 9. Day 12 Outcome
+| Tool / technology | Role | Today's status |
+|---|---|---|
+| Claude 1 | Image preparation and asset alignment | Free-message limit reached; reset shown as 2:30 AM |
+| Claude 2 | Inspected three images and four code files; proposed a three-file implementation | Plan received; no code changed |
+| ChatGPT | Technical consultation, planning, review and documentation | Used |
+| Cursor | Local editor for manually applying reviewed code | No code pasted today |
+| Expo / Expo Go | App development and iPhone preview | Existing stack; no device test today |
+| React Native | Mobile UI framework | Existing project technology |
+| Expo Router | Navigation foundation | Existing project technology |
+| JavaScript / JSX | App language and component syntax | Existing project technology; no new implementation |
+| Markdown | Development log | Used today |
 
-Day 12 established a measured, limited plan for the first layered Leonhart preview. The shared canvas size and preliminary alignment are encouraging, and the remaining visual issues have been documented for testing.
+The local app was previously reported as using Expo SDK 58 and React Native 0.88.1; verify the local `package.json` before relying on exact versions. The GitHub repository is currently a documentation/devlog repository; the full app source and asset library are not tracked there.
 
-**Day 12 status:** Image inspection and implementation planning completed; asset identity confirmation, code integration and on-device validation remain pending.
+## 5. Main Challenge: AI Usage Limits
+
+The biggest frustration today was the interruption caused by AI message limits. The workflow currently uses Claude for coding and image-preparation assistance, ChatGPT for consultation and technical review, and Cursor as the local editor where changes are manually applied.
+
+This division of work is useful, but it creates a bottleneck: when Claude's free-message allowance runs out, development can stop even when the next step is already clear. Claude 1 displayed a message saying free messages would resume at **2:30 AM the following day**. Claude 2 also reached its limit after returning its inspection and plan.
+
+It is genuinely discouraging to prepare a task, reach the point where work can move forward, and then be blocked by a usage limit. The problem is not simply inconvenience; it interrupts concentration and makes development progress unpredictable.
+
+### Lessons and possible improvements
+
+1. Avoid depending on a single AI account for every development step.
+2. Keep prompts focused and avoid repeatedly sending the entire project history.
+3. Maintain a reusable project handover note with current paths, decisions and pending work.
+4. Ask for inspection first, then request one small code change at a time.
+5. Save useful decisions and code explanations outside individual chats.
+6. Compare sustainable AI coding options and costs before committing to a subscription.
+
+No new subscription or alternative coding service was selected today.
+
+## 6. Today's Workflow
+
+```mermaid
+flowchart TD
+    A[Inspect character assets] --> B[Compare canvas and visible bounds]
+    B --> C[Review proposed layer order]
+    C --> D{Are exact local files confirmed?}
+    D -->|No| E[Pause code changes]
+    E --> F[Resume image preparation after reset]
+    F --> G[Confirm finished PNGs and paths]
+    G --> H[Register image imports]
+    H --> I[Add layered carousel support]
+    I --> J[Switch Leonhart slide only]
+    J --> K[Test on iPhone with Expo Go]
+```
+
+## 7. End-of-Day Progress Snapshot
+
+| Workstream | Status | Next action |
+|---|---|---|
+| Base, face and red-hair inspection | Reported complete | Confirm local file identity |
+| Remaining male face and hair variations | Waiting | Upload original files in batches |
+| Layered character code | Not started | Begin after assets are confirmed |
+| Emilia customization | Deferred | Revisit after Leonhart proof of concept |
+| Clothes and weapons | Deferred | Keep outside first milestone |
+| Expo Go validation | Pending | Test after incremental code edits |
+| AI-tool reliability | Bottleneck identified | Investigate a sustainable fallback |
+
+## 8. What Went Well
+
+- The first three layers reportedly share one canvas size.
+- The proposed code change is limited to three existing files.
+- The first test has a clear scope: Leonhart, one face and one hairstyle.
+- We avoided rushing code changes while file identity remains uncertain.
+
+## 9. What Did Not Go Well
+
+- AI message limits interrupted the work more than once.
+- Image preparation must wait until an assistant is available.
+- Exact local file identity and paths still need confirmation.
+- There is not yet a layered character running in the app.
+
+## 10. Next Session — Day 13
+
+1. Continue with Claude 1 after its limit resets.
+2. Upload original male face and hair assets in batches of about six.
+3. Align selected assets to the 1199 × 1312 transparent template without redesigning the pixel art.
+4. Keep original files as backups and inspect returned PNGs.
+5. Confirm exact filenames and local paths.
+6. Register the first three images in `assets/profileImages.js`.
+7. Test each small code change before proceeding to the next file.
+8. Verify the layered Leonhart preview on the iPhone through Expo Go.
+
+## 11. Final Reflection
+
+Today was not a coding milestone, and it would be misleading to describe it as one. It was a day of measuring, checking assumptions, choosing a safer implementation path and confronting a weakness in the development workflow.
+
+The most frustrating part was being ready to continue but repeatedly running into usage limits. AI assistance is helping me build System: T-0, but I need a workflow that remains dependable when one tool becomes unavailable. Tomorrow's goal is to finish preparing the first Leonhart layers, then return to the app one small change at a time.
+
+**Day 12 outcome:** The first layered-character plan is documented. Asset confirmation, code integration and device validation remain pending.
 
 ---
 *System: T-0 — Development log*
