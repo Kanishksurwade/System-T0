@@ -33,14 +33,16 @@ These are product goals and planned capabilities; individual features may still 
 |---|---|
 | Expo | React Native application development and device preview |
 | React Native | Cross-platform mobile UI |
+| JavaScript / JSX | Application logic and component UI syntax |
 | Expo Router | Application navigation foundation |
 | EAS (Expo Application Services) | Expo project/build-service integration |
 | Expo Go | Preview and test the app on a physical iPhone |
-| Cursor | Local code editor |
-| Claude / ChatGPT | AI-assisted implementation, code review and documentation |
+| Cursor | Local code editor; code is applied manually |
+| Claude / ChatGPT | AI-assisted implementation, code review and technical consultation |
 | Canva | UI concept and visual design work |
+| Markdown | Project documentation and development logs |
 
-The local project has been reported as using Expo SDK 58. Verify the current local `package.json` before relying on exact dependency versions.
+The local project has been reported as using Expo SDK 58 and React Native 0.88.1. Verify the current local `package.json` before relying on exact dependency versions.
 
 ## Visual Direction
 
@@ -63,7 +65,7 @@ The current workflow is intentionally incremental:
 6. Verify the result on a physical iPhone using Expo Go.
 7. Record verified progress and unresolved issues in the daily development log.
 
-This approach helps keep changes understandable and reduces unnecessary rewrites.
+This approach helps keep changes understandable and reduces unnecessary rewrites. The project also tracks AI-tool usage limits as a workflow risk, so key decisions and handover notes should be saved outside individual chat sessions.
 
 ## Repository Structure
 
@@ -80,7 +82,8 @@ System-T0/
     ├── Day8_Log.md
     ├── Day9_Log.md
     ├── Day10_Log.md
-    └── Day11_Log.md
+    ├── Day11_Log.md
+    └── Day12_Log.md
 ~~~
 
 > The tree above describes the documentation tracked in this repository. The working Expo app and local asset folders are maintained separately at this stage. Days 8–10 currently contain retrospective placeholders pending the user's verified notes.
@@ -100,16 +103,18 @@ System-T0/
 | [Day 9](Devlogs/Day9_Log.md) | Retrospective placeholder | Awaiting verified Day 9 notes; no activities invented |
 | [Day 10](Devlogs/Day10_Log.md) | Retrospective placeholder | Awaiting verified Day 10 notes; no activities invented |
 | [Day 11](Devlogs/Day11_Log.md) | Profile & character assets | Edit Name, gender selection, Leonhart/Emilia carousel and face/hair asset preparation |
+| [Day 12](Devlogs/Day12_Log.md) | Layered character planning & AI workflow | Leonhart image inspection, proposed layer architecture and AI usage-limit bottlenecks |
 
 ## Current Priorities
 
-1. Inspect the dimensions, transparency and visible bounds of the face and hair assets.
-2. Prove that one face and one hair layer align correctly on Leonhart.
-3. Test hair and face switching without moving the base character.
-4. Repeat the alignment process for Emilia.
-5. Implement Face and Hair selection controls after the layered preview is reliable.
-6. Add persistence for profile name, gender and customization selections.
-7. Keep clothing and weapon customization deferred until the initial layers work.
+1. Confirm the dimensions, transparency and exact local identity of the face and hair assets.
+2. Prepare one face and one hair layer aligned to Leonhart's 1199 × 1312 template.
+3. Prove that the layers align correctly in the app.
+4. Test hair and face switching without moving the base character.
+5. Repeat the alignment process for Emilia.
+6. Implement Face and Hair selection controls after the layered preview is reliable.
+7. Add persistence for profile name, gender and customization selections.
+8. Keep clothing and weapon customization deferred until the initial layers work.
 
 ## Build & Run
 
