@@ -34,6 +34,7 @@ These are product goals and planned capabilities; individual features may still 
 | Expo | React Native application development and device preview |
 | React Native | Cross-platform mobile UI |
 | JavaScript / JSX | Application logic and component UI syntax |
+| Markdown | Project documentation and development logs |
 | Expo Router | Application navigation foundation |
 | EAS (Expo Application Services) | Expo project/build-service integration |
 | Expo Go | Preview and test the app on a physical iPhone |
@@ -65,7 +66,7 @@ The current workflow is intentionally incremental:
 6. Verify the result on a physical iPhone using Expo Go.
 7. Record verified progress and unresolved issues in the daily development log.
 
-This approach helps keep changes understandable and reduces unnecessary rewrites. The project also tracks AI-tool usage limits as a workflow risk, so key decisions and handover notes should be saved outside individual chat sessions.
+This approach helps keep changes understandable and reduces unnecessary rewrites. AI-tool usage limits are also tracked as a workflow risk, so key decisions and handover notes should be saved outside individual chats. The project also tracks AI-tool usage limits as a workflow risk, so key decisions and handover notes should be saved outside individual chat sessions.
 
 ## Repository Structure
 
@@ -83,6 +84,7 @@ System-T0/
     ├── Day9_Log.md
     ├── Day10_Log.md
     ├── Day11_Log.md
+    └── Day12_Log.md
     └── Day12_Log.md
 ~~~
 
@@ -103,6 +105,7 @@ System-T0/
 | [Day 9](Devlogs/Day9_Log.md) | Retrospective placeholder | Awaiting verified Day 9 notes; no activities invented |
 | [Day 10](Devlogs/Day10_Log.md) | Retrospective placeholder | Awaiting verified Day 10 notes; no activities invented |
 | [Day 11](Devlogs/Day11_Log.md) | Profile & character assets | Edit Name, gender selection, Leonhart/Emilia carousel and face/hair asset preparation |
+| [Day 12](Devlogs/Day12_Log.md) | Layered character planning & AI workflow | Leonhart image inspection, proposed layer architecture and AI usage-limit bottlenecks |
 | [Day 12](Devlogs/Day12_Log.md) | Layered character planning & AI workflow | Leonhart image inspection, proposed layer architecture and AI usage-limit bottlenecks |
 
 ## Current Priorities
