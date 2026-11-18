@@ -1,60 +1,82 @@
-# Day 13 — Character Asset Preparation
+# Day 13 — Male & Female Character Asset Preparation
 
 **Project:** System: T-0  
 **Date:** 18 November 2026  
-**Focus:** Male and female character assets, transparency, and layer alignment
+**Focus:** Character bases, face and hair assets, transparency, and alignment
 
 ## Daily Summary
 
-Today’s work focused on preparing the character artwork so the app can support modular customization. The male character’s face and hairstyle assets were prepared and aligned. The female character’s assets were also prepared, including a bald base for the second female character, Mia. Hair and face assets for both male and female characters were made ready for the next coding stage.
+Today I focused on preparing both male and female characters for modular customization. I finished preparing the male face and hair assets, then completed the female face and hair preparation as well. I also created a bald base for Mia, the second female character.
 
-The work involved careful image editing, removing backgrounds, creating clean transparent PNG assets, and matching the position and scale of the layers so they can stack correctly over each character base.
+The work included removing backgrounds, making the assets transparent, creating clean bald face layers, and carefully matching the size and position of faces and hairstyles with their character bases. This was a detailed, mostly manual process because even small alignment errors can make the character look unnatural in the app.
 
 ## Progress Overview
 
-| Area | Day 13 result |
-|---|---|
-| Male character | Face and hairstyle assets prepared and aligned |
-| Female character | Face and hairstyle assets prepared and aligned |
-| Second female character | Mia’s base character prepared |
-| Character bases | Bald bases prepared for separate face and hair layers |
-| Transparency | Backgrounds removed; transparent assets prepared |
-| Layer alignment | Face and hair positions adjusted to match the character bases |
-| App integration | Assets prepared for the next coding and in-app testing stage |
+| Work area | Day 13 result | Status |
+|---|---|---|
+| Male character base | Clean base prepared | Ready |
+| Male faces | Face assets prepared and aligned | Ready |
+| Male hairstyles | Three hairstyle variations prepared and aligned | Ready |
+| Female character base | Base prepared for modular layers | Ready |
+| Female faces | Face assets prepared and aligned | Ready |
+| Female hairstyles | Hair assets prepared and aligned | Ready |
+| Mia (second female character) | Base character prepared | Ready |
+| Transparency | Backgrounds removed; transparent assets prepared | Ready |
+| Layer alignment | Face and hair positions matched to their bases | Ready |
+| App integration | Final connection and device testing still pending | Next |
 
-## Technical Workflow and Code Context
+## Technical Workflow
 
-The asset preparation was done using image-editing tools, including Photopea, with transparent PNG output and consistent canvas positioning as the key requirements.
+### Asset preparation
 
-The existing React Native / Expo layered-character implementation provides the code context for the next integration step:
+- Used **Photopea** to remove backgrounds and refine transparent PNG assets.
+- Prepared bald face layers so hairstyles can be placed independently.
+- Kept the character canvas and layer positions consistent to support accurate stacking.
+- Checked the face and hair placement against the corresponding character bases.
+
+### Existing app code involved in the customization flow
 
 | File | Responsibility |
 |---|---|
 | `assets/profileImages.js` | Registers image assets used by the app |
-| `assets/characterLayers.js` | Defines character layer asset mappings |
-| `src/components/LayeredCharacter.js` | Renders the character from stacked image layers |
-| `src/components/AvatarCarousel.js` | Displays character slides in the profile carousel |
-| `src/components/PartPickerModal.js` | Provides the face and hair selection interface |
+| `assets/characterLayers.js` | Stores character layer mappings |
+| `src/components/LayeredCharacter.js` | Renders the character using stacked image layers |
+| `src/components/AvatarCarousel.js` | Displays character slides in the Profile carousel |
+| `src/components/PartPickerModal.js` | Displays face and hair selection options |
 | `src/screens/ProfileScreen.js` | Connects the character preview and customization controls |
 
-**Code status:** No new code changes are recorded for Day 13. Today’s focus was asset creation, cleanup, transparency, and alignment. The prepared female assets and completed male assets are ready to be connected and tested through the existing layered-character flow.
+**Code status:** Day 13 was mainly an asset-preparation day. The existing layered-character code provides the integration path, but today's newly prepared female assets still need to be registered, connected, and tested in the app. No new code changes are claimed in this log.
 
-## Key Quality Checks for Integration
+## Character Layer Structure
 
-- Keep the same canvas dimensions and character position across each base and its face/hair layers.
-- Preserve genuine alpha transparency; do not leave a black or checkerboard background baked into the PNG.
-- Keep the original pixel-art outlines, colors, and proportions.
-- Test each character in the app before adding more customization options.
+The intended rendering order is:
+
+```mermaid
+flowchart TD
+    A[Character Base] --> B[Selected Face]
+    B --> C[Selected Hairstyle]
+    C --> D[Layered Character Preview]
+    D --> E[Profile Carousel]
+```
+
+The face and hair selectors should update only their own layer while keeping the other selected layer unchanged.
+
+## Quality Checks Before Integration
+
+- Keep each base, face, and hairstyle on the correct matching canvas.
+- Preserve genuine alpha transparency; avoid black or checkerboard pixels baked into the background.
+- Preserve the original pixel-art outlines, colors, and proportions.
+- Confirm that the face covers the bald head cleanly and the hairstyle sits naturally above it.
+- Test the result on the iPhone through Expo Go before expanding customization.
 
 ## Next Steps
 
-1. Integrate the prepared male and female assets into the existing asset map.
-2. Set sensible default face and hair selections for each character.
-3. Test every hair and face option in the Profile screen on Expo Go.
-4. Fix any visible alignment, overlap, or transparency issues before expanding to clothes and weapons.
+1. Register the final male and female assets in the app's asset mapping.
+2. Set default face and hairstyle selections for both characters.
+3. Connect the female assets to the layered-character preview.
+4. Test all available face and hair choices on the Profile screen.
+5. Fix any alignment, overlap, or transparency issues before moving on to clothes and weapons.
 
 ## Day 13 Outcome
 
-**Asset preparation completed; app integration and device testing are the next stage.**
-
-The main achievement today was getting both male and female character assets ready for modular customization without changing the existing Profile screen functionality.
+**Male and female face and hair assets are prepared. Mia's base is also ready. The next milestone is connecting the prepared assets to the existing customization code and testing both characters in the app.**
