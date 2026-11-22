@@ -1,138 +1,114 @@
 # System: T-0
 
-> A gamified personal productivity and daily-planning app built around RPG-inspired progression.
+> A gamified personal productivity app that turns everyday goals into an RPG-inspired journey.
 
-System: T-0 is being developed as a mobile application that turns everyday goals and routines into a game-like progression experience. The product direction combines a character profile, quests/goals, streaks, rewards, health and stamina indicators, and a custom visual identity.
+System: T-0 is an active mobile-app project built with Expo and React Native. Its product direction combines daily planning, quests, character customisation, progression, rewards and a distinctive visual identity.
 
 ## Project Status
 
-**Development stage:** Active prototype / UI implementation
+**Stage:** Active prototype with Profile and Calendar screens implemented and tested on a physical iPhone through Expo Go.
 
-The project has progressed from initial concept and visual design into a working Expo + React Native application previewed on a physical iPhone through Expo Go. The Profile screen is being refined with custom character and interface assets.
-
-This repository currently serves as the project's documentation and development-log repository. The local application source and complete asset library are not yet represented here, so this README does not claim that the repository itself contains a reproducible app build.
+This repository is currently the project's documentation and development-log repository. The working application source and complete asset library are maintained locally and are not included here. Development logs distinguish implemented, tested, planned and unverified work.
 
 ## Product Direction
 
 | Area | Intended experience |
 |---|---|
-| Profile & character | A player profile with a customizable RPG character, class, level and rank |
-| Goals / quests | Everyday tasks presented as goals that contribute to progression |
-| Streaks | Consecutive-day progress with visual reward tiers |
-| Rewards & coins | Earned in-app currency linked to completed goals |
+| Profile & character | Player identity, character selection and customisation |
+| Goals / quests | Simple daily tasks that contribute to progress |
+| Calendar | Date-based planning, task completion and history |
+| Progression | Levels, streaks, XP and rewards |
 | Health & stamina | Game-inspired progress indicators |
-| Customization | Hair, face, clothing and weapon appearance options |
-| Shop & premium | Earnable items alongside premium-locked content (monetization design remains future work) |
-| Calendar & widgets | Daily planning and at-a-glance progress surfaces |
+| Customisation | Character appearance, clothing and equipment |
+| Widgets & Shop | At-a-glance information and item catalogue |
+| Settings & Premium | Preferences and future premium access |
 
-These are product goals and planned capabilities; individual features may still be under design or implementation.
+Some areas remain planned or under development; a visible navigation item does not necessarily mean its full feature is implemented.
 
-## Current Technology Direction
+## Technology & Workflow
 
-| Technology / Tool | Role |
+| Tool | Role |
 |---|---|
-| Expo | React Native application development and device preview |
-| React Native | Cross-platform mobile UI |
-| JavaScript / JSX | Application logic and component UI syntax |
-| Markdown | Project documentation and development logs |
-| Expo Router | Application navigation foundation |
-| EAS (Expo Application Services) | Expo project/build-service integration |
-| Expo Go | Preview and test the app on a physical iPhone |
-| Cursor | Local code editor; code is applied manually |
-| Claude / ChatGPT | AI-assisted implementation, code review and technical consultation |
-| Canva | UI concept and visual design work |
-| Markdown | Project documentation and development logs |
+| Expo / Expo Router | App runtime and navigation |
+| React Native / JavaScript | Mobile UI and application logic |
+| AsyncStorage | Local persistence for Calendar tasks |
+| Expo Go | Physical-device preview and testing |
+| Cursor | Local code editor; changes are applied manually |
+| Claude / ChatGPT | Focused code generation, review and technical planning |
+| Photopea / Canva | Asset preparation and visual design |
 
-The local project has been reported as using Expo SDK 58 and React Native 0.88.1. Verify the current local `package.json` before relying on exact dependency versions.
+The local project has been reported as using Expo SDK 58 and React Native 0.88.1. Check the local `package.json` before relying on exact versions.
 
-## Visual Direction
+### Development workflow
 
-The current design direction includes:
-- Glassmorphism-inspired cards and soft gradient backgrounds.
-- Pixel-art RPG character artwork.
-- Custom PNG badges and stat icons.
-- A profile experience centered around the character **Leonard / Leonhart** (the UI data and asset naming should be standardized in a later cleanup).
-- A modular customization menu for Hair, Face, Clothes and Weapon.
-
-## Development Workflow
-
-The current workflow is intentionally incremental:
-
-1. Inspect the existing component and asset paths.
-2. Define one focused change.
-3. Generate or review the code with an AI assistant.
-4. Apply the change manually in Cursor.
-5. Save and run the Expo app.
-6. Verify the result on a physical iPhone using Expo Go.
-7. Record verified progress and unresolved issues in the daily development log.
-
-This approach helps keep changes understandable and reduces unnecessary rewrites. AI-tool usage limits are also tracked as a workflow risk, so key decisions and handover notes should be saved outside individual chats. The project also tracks AI-tool usage limits as a workflow risk, so key decisions and handover notes should be saved outside individual chat sessions.
+1. Inspect the current file and relevant assets.
+2. Agree on one focused change.
+3. Generate or review the proposed code.
+4. Apply changes manually in Cursor.
+5. Run the app from the project root.
+6. Test on the iPhone using Expo Go.
+7. Record the verified result and remaining work.
 
 ## Repository Structure
 
-~~~text
+```text
 System-T0/
+├── README.md
 └── Devlogs/
     ├── Day1_Log.md
-    ├── Day2_Log.md
-    ├── Day3_Log.md
-    ├── Day4_Log.md
-    ├── Day5_Log.md
-    ├── Day6_Log.md
-    ├── Day7_Log.md
-    ├── Day8_Log.md
-    ├── Day9_Log.md
-    ├── Day10_Log.md
-    ├── Day11_Log.md
-    └── Day12_Log.md
-    └── Day12_Log.md
-~~~
+    ├── ...
+    └── Day17_Log.md
+```
 
-> The tree above describes the documentation tracked in this repository. The working Expo app and local asset folders are maintained separately at this stage. Days 8–10 currently contain retrospective placeholders pending the user's verified notes.
+The app source and assets are maintained separately in the local project at this stage.
 
 ## Development Log
 
-| Day | Focus | Summary |
+| Day | Focus | Outcome |
 |---|---|---|
-| [Day 1](Devlogs/Day1_Log.md) | Product concept | Initial System: T-0 idea and core direction |
-| [Day 2](Devlogs/Day2_Log.md) | Product and UI planning | Early interface and feature planning |
-| [Day 3](Devlogs/Day3_Log.md) | AI tooling experiments | OmniRoute / coding workflow exploration |
-| [Day 4](Devlogs/Day4_Log.md) | Visual design | Canva UI design and native-app direction |
-| [Day 5](Devlogs/Day5_Log.md) | App foundation | Expo setup, EAS linking and first physical-device preview |
-| [Day 6](Devlogs/Day6_Log.md) | Asset preparation | Character/icon asset preparation and coding-tool bottlenecks |
-| [Day 7](Devlogs/Day7_Log.md) | Profile UI refinement | Custom asset integration, layout adjustments and Metro path troubleshooting |
-| [Day 8](Devlogs/Day8_Log.md) | Retrospective placeholder | Awaiting verified Day 8 notes; no activities invented |
-| [Day 9](Devlogs/Day9_Log.md) | Retrospective placeholder | Awaiting verified Day 9 notes; no activities invented |
-| [Day 10](Devlogs/Day10_Log.md) | Retrospective placeholder | Awaiting verified Day 10 notes; no activities invented |
-| [Day 11](Devlogs/Day11_Log.md) | Profile & character assets | Edit Name, gender selection, Leonhart/Emilia carousel and face/hair asset preparation |
-| [Day 12](Devlogs/Day12_Log.md) | Layered character planning & AI workflow | Leonhart image inspection, proposed layer architecture and AI usage-limit bottlenecks |
-| [Day 12](Devlogs/Day12_Log.md) | Layered character planning & AI workflow | Leonhart image inspection, proposed layer architecture and AI usage-limit bottlenecks |
+| [Day 1](Devlogs/Day1_Log.md) | Product concept | Initial idea and direction |
+| [Day 2](Devlogs/Day2_Log.md) | Product and UI planning | Early feature and interface planning |
+| [Day 3](Devlogs/Day3_Log.md) | AI tooling | Coding workflow experiments |
+| [Day 4](Devlogs/Day4_Log.md) | Visual design | Initial visual design work |
+| [Day 5](Devlogs/Day5_Log.md) | App foundation | Expo setup and device preview |
+| [Day 6](Devlogs/Day6_Log.md) | Asset preparation | Character and icon assets |
+| [Day 7](Devlogs/Day7_Log.md) | Profile UI | Profile refinement and setup troubleshooting |
+| [Day 8](Devlogs/Day8_Log.md) | Retrospective | Placeholder pending verified notes |
+| [Day 9](Devlogs/Day9_Log.md) | Retrospective | Placeholder pending verified notes |
+| [Day 10](Devlogs/Day10_Log.md) | Retrospective | Placeholder pending verified notes |
+| [Day 11](Devlogs/Day11_Log.md) | Profile & character assets | Name, gender selection and character options |
+| [Day 12](Devlogs/Day12_Log.md) | Character-layer planning | Asset inspection and customization planning |
+| [Day 13](Devlogs/Day13_Log.md) | Character asset preparation | Male and female face/hair asset preparation |
+| [Day 14](Devlogs/Day14_Log.md) | Asset diagnosis | Face alignment investigation and correction |
+| [Day 15](Devlogs/Day15_Log.md) | Customization redesign | Shift to pre-composed character artwork |
+| [Day 16](Devlogs/Day16_Log.md) | Profile milestone | Functional Profile UI, character catalogue and progress foundation |
+| [Day 17](Devlogs/Day17_Log.md) | Calendar milestone | Bulk tasks, sorting, clearing, persistence, history indicators and device testing |
 
-## Current Priorities
+## Current Milestones
 
-1. Confirm the dimensions, transparency and exact local identity of the face and hair assets.
-2. Prepare one face and one hair layer aligned to Leonhart's 1199 × 1312 template.
-3. Prove that the layers align correctly in the app.
-4. Test hair and face switching without moving the base character.
-5. Repeat the alignment process for Emilia.
-6. Implement Face and Hair selection controls after the layered preview is reliable.
-7. Add persistence for profile name, gender and customization selections.
-8. Keep clothing and weapon customization deferred until the initial layers work.
+- **Profile:** first functional screen completed; character and profile experience tested.
+- **Calendar:** completed for the current scope and confirmed working by the user on iPhone.
+- **Goals, Widgets and Shop:** navigation destinations exist, but their full feature sets remain future work.
+- **Progression:** initial progress architecture exists; the complete goal-to-reward loop still needs integration and validation.
+- **Premium:** UI entry and popup are prototypes; live purchase/subscription integration is not claimed.
 
-## Build & Run
+## Next Priorities
 
-The Expo application source is currently maintained locally and is not yet included in this documentation repository. Once the app source is added, this section should be updated with the verified installation, environment and run commands from the actual project.
-
-For now, consult the [development logs](Devlogs/) for the recorded setup history and implementation progress.
+1. Define the minimum complete user journey across the remaining core screens.
+2. Build and test the Goals experience and connect task completion to shared progression.
+3. Validate persistence for all user-critical data, not only Calendar tasks.
+4. Develop progression and rewards only after their rules are clearly defined.
+5. Add optional features after the core experience is reliable and easy to use.
 
 ## Project Principles
 
-- **Incremental development:** prefer focused, reviewable changes over large rewrites.
-- **Visual consistency:** use a coherent custom RPG asset system.
-- **Device-first validation:** verify important UI changes on a real device.
-- **Accurate documentation:** distinguish implemented, tested, planned and unverified work.
-- **Sustainable tooling:** avoid depending entirely on limited premium AI-agent usage.
+- **Simple to use:** essential actions should be obvious, even to a first-time user.
+- **Incremental development:** prefer focused changes over broad rewrites.
+- **Preserve working features:** regression-test existing screens after changes.
+- **Device-first validation:** do not mark features complete based only on syntax checks.
+- **Accurate documentation:** clearly separate tested features from prototypes and plans.
+- **Sustainable workflow:** retain project decisions outside individual AI chats.
 
 ---
 
-*System: T-0 is an active work in progress. Features, visuals and technical architecture may change as implementation and testing continue.*
+*System: T-0 is a work in progress. Product scope, visuals and technical architecture may evolve as implementation and testing continue.*
