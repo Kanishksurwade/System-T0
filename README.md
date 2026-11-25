@@ -57,7 +57,10 @@ System-T0/
 └── Devlogs/
     ├── Day1_Log.md
     ├── ...
-    └── Day17_Log.md
+    ├── Day17_Log.md
+    ├── Day18_Log.md
+    ├── Day19_Log.md
+    └── Day20_Log.md
 ```
 
 The app source and assets are maintained separately in the local project at this stage.
@@ -83,6 +86,9 @@ The app source and assets are maintained separately in the local project at this
 | [Day 15](Devlogs/Day15_Log.md) | Customization redesign | Shift to pre-composed character artwork |
 | [Day 16](Devlogs/Day16_Log.md) | Profile milestone | Functional Profile UI, character catalogue and progress foundation |
 | [Day 17](Devlogs/Day17_Log.md) | Calendar milestone | Bulk tasks, sorting, clearing, persistence, history indicators and device testing |
+| [Day 18](Devlogs/Day18_Log.md) | Widgets planning | Researched widget concepts and set a Windows/Expo implementation direction |
+| [Day 19](Devlogs/Day19_Log.md) | Rest day | No app development work recorded |
+| [Day 20](Devlogs/Day20_Log.md) | Rest day | No app development work recorded |
 
 ## Current Milestones
 
@@ -92,13 +98,19 @@ The app source and assets are maintained separately in the local project at this
 - **Progression:** initial progress architecture exists; the complete goal-to-reward loop still needs integration and validation.
 - **Premium:** UI entry and popup are prototypes; live purchase/subscription integration is not claimed.
 
+## Current Development Starting Point — Day 21
+
+The next session resumes from Day 21. The immediate focus is the **in-app Widgets screen**, not native iOS Home Screen or Lock Screen widgets. Begin by inspecting the existing local navigation and shared data so the screen can reuse real Calendar/Profile information. Keep the first version small and useful, and preserve the tested Profile and Calendar screens.
+
+Native iOS widgets remain a later technical investigation because the current development environment is Windows with Expo/React Native; native iOS widget build/signing workflows require a macOS/Xcode path or a suitable cloud Mac service.
+
 ## Next Priorities
 
-1. Define the minimum complete user journey across the remaining core screens.
-2. Build and test the Goals experience and connect task completion to shared progression.
-3. Validate persistence for all user-critical data, not only Calendar tasks.
-4. Develop progression and rewards only after their rules are clearly defined.
-5. Add optional features after the core experience is reliable and easy to use.
+1. Inspect the current local app structure and shared data before changing code.
+2. Build the first minimal in-app Widgets screen and test it on iPhone through Expo Go.
+3. Reuse existing task, streak and character data rather than creating duplicate systems.
+4. Continue with Goals and shared progression after the Widgets screen has a stable first version.
+5. Add optional features only when they strengthen the core experience without clutter.
 
 ## Project Principles
 
