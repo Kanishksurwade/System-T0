@@ -89,6 +89,8 @@ The app source and assets are maintained separately in the local project at this
 | [Day 18](Devlogs/Day18_Log.md) | Widgets planning | Researched widget concepts and set a Windows/Expo implementation direction |
 | [Day 19](Devlogs/Day19_Log.md) | Rest day | No app development work recorded |
 | [Day 20](Devlogs/Day20_Log.md) | Rest day | No app development work recorded |
+| [Day 21](Devlogs/Day21_Log.md) | Widget Store and Android checks | First Widget Store visual and Android testing |
+| [Day 22](Devlogs/Day22_Log.md) | Streak Guardian design | Finalized three voxel companion moods and documented shared-progress integration plan |
 
 ## Current Milestones
 
@@ -98,9 +100,11 @@ The app source and assets are maintained separately in the local project at this
 - **Progression:** initial progress architecture exists; the complete goal-to-reward loop still needs integration and validation.
 - **Premium:** UI entry and popup are prototypes; live purchase/subscription integration is not claimed.
 
-## Current Development Starting Point — Day 21
+## Current Development Starting Point — Day 23
 
-The next session resumes from Day 21. The immediate focus is the **in-app Widgets screen**, not native iOS Home Screen or Lock Screen widgets. Begin by inspecting the existing local navigation and shared data so the screen can reuse real Calendar/Profile information. Keep the first version small and useful, and preserve the tested Profile and Calendar screens.
+The next session resumes from Day 22. The Streak Guardian visual direction is finalized for this iteration: one voxel companion with happy, neutral, and sleepy moods; a fire icon and streak count; and a seven-day MON–SUN completion row. The design intentionally excludes progress bars, percentages, extra descriptions, and unnecessary controls.
+
+The next engineering task is to inspect the local task and progress architecture before implementing synchronization. Calendar task records should remain the single source of truth for Goals, Profile, progression, and Streak Guardian. Do not create separate counters for each screen. Confirm the exact empty-day and late-evening mood rules before coding. The Day 22 log records what is designed, what remains unverified, and the required test plan.
 
 Native iOS widgets remain a later technical investigation because the current development environment is Windows with Expo/React Native; native iOS widget build/signing workflows require a macOS/Xcode path or a suitable cloud Mac service.
 
@@ -109,8 +113,9 @@ Native iOS widgets remain a later technical investigation because the current de
 1. Inspect the current local app structure and shared data before changing code.
 2. Build the first minimal in-app Widgets screen and test it on iPhone through Expo Go.
 3. Reuse existing task, streak and character data rather than creating duplicate systems.
-4. Continue with Goals and shared progression after the Widgets screen has a stable first version.
-5. Add optional features only when they strengthen the core experience without clutter.
+4. Inspect and unify task-to-progress calculations so Calendar, Goals, Profile, and Streak Guardian stay synchronized.
+5. Integrate the three mascot mood assets and test task completion, undo, clearing, app restart, and date rollover.
+6. Add optional features only when they strengthen the core experience without clutter.
 
 ## Project Principles
 
